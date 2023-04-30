@@ -1,4 +1,4 @@
-----
+---
 #PersistentVolume hard drive
 apiVersion: v1
 kind: PersistentVolume
@@ -6,14 +6,14 @@ metadata:
     name: disk
 spec:
     capacity:
-        storage: 100Gi
+        storage: 28Gi
     volumeMode: Filesystem
     accessModes:
         - ReadWriteOnce
     persistentVolumeReclaimPolicy: Delete
     storageClassName: disk
     local:
-        path: /mnt/disks/ssd1 #TODO Надо потом добавть
+        path: /mnt/flesh/ #TODO Надо потом добавть
     nodeAffinity:
         required:
             nodeSelectorTerms:
@@ -23,8 +23,8 @@ spec:
                         values:
                             - example-node #надо понять
                            
-....
-----
+...
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -36,8 +36,8 @@ spec:
         requests:
             storage: 5Gi
     storageClassName: disk
-....
-----
+...
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -47,5 +47,5 @@ spec:
         - ReadWriteOnce
     resources:
         requests:
-            storage: 300Gi
+            storage: 20Gi
     storageClassName: disk
