@@ -8,4 +8,5 @@ resources:
     - ./src/configs/redis/redis_deployment.yaml
     - ./src/configs/redis/redis_service.yaml
     - ./src/configs/other/cert_manager.yaml
+    # - ./src/configs/other/cert_manager_prod.yaml
     - ./src/configs/other/ingress.yaml
