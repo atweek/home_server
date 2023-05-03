@@ -1,25 +1,22 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nextcloud-ingress
-  annotations:
-    # kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/issuer: "letsencrypt"
-    # cert-manager.io/acme-challenge-type: http01
+  name: home-ingress
+  # namespace: foo
 spec:
   ingressClassName: nginx
   rules:
     - host: nextcloud.local
-      http: 
-        paths: 
-          - path: /
-            pathType: Prefix
+      http:
+        paths:
+          - pathType: Prefix
             backend:
               service:
                 name: nextcloud
                 port:
                   number: 80
+            path: /
   tls:
-  - hosts: 
-    - nextcloud.local
-    secretName: nginx-tls
+    - hosts:
+      - nextcloud.local
+      secretName: ingress-tls

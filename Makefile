@@ -33,6 +33,7 @@ worker:
 	kubectl label node tinkerboard-2 node-role.kubernetes.io/worker=worker
 
 helm:
+	export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 	helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 	helm repo update
 	helm install quickstart ingress-nginx/ingress-nginx
