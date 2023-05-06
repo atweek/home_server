@@ -1,8 +1,10 @@
 CERT_MANAGER_URL = https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.yaml
 
 install:
-	curl -sfL https://get.k3s.io | sh -s - server --write-kubeconfig-mode 644
+	curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644 --disable traefik
 	export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+	kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/baremetal/deploy.yaml
+	kubectl patch deployment ingress-nginx-controller -n ingress-nginx --patch "$(cat confs/ingresses/ingress.yaml)"
 
 uninstall:
 	# kubectl delete -f $(CERT_MANAGER_URL)
