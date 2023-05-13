@@ -4,9 +4,9 @@ metadata:
   name: home-ingress
   # namespace: foo
 spec:
-  ingressClassName: nginx
+  # ingressClassName: nginx
   rules:
-    - host: nextcloud.local
+    - host: orange.pi
       http:
         paths:
           - pathType: Prefix
