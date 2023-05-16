@@ -8,9 +8,10 @@ uninstall:
 	/usr/local/bin/k3s-uninstall.sh
 	
 run:
-	kubectl apply -f $(CERT_MANAGER_URL)
+	# kubectl apply -f $(CERT_MANAGER_URL)
 	kubectl apply -k .
-	export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+	# export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+	kubectl get all -ALL
 
 	
 mount:

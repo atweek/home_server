@@ -1,8 +1,13 @@
 resources:
-    - ./confs/nextcloud/nextcloud_app.yaml
-    - ./confs/nextcloud/nextcloud_ingress.yaml
-    - ./confs/nextcloud/nextcloud_service.yaml
-    - ./confs/nextcloud/nextcloud-secret.yaml
+    - ./confs/other/pv_pvc.yaml
+    - ./confs/other/secrets.yaml
     - ./confs/mariadb/mariadb_app.yaml
     - ./confs/mariadb/mariadb_service.yaml
-    - ./confs/other/pv_pvc.yaml
+    - ./confs/redis/redis_deployment.yaml
+    - ./confs/redis/redis_service.yaml
+    - ./confs/nextcloud/nextcloud_app.yaml
+    - ./confs/nextcloud/nextcloud_service.yaml
+    - ./confs/nextcloud/nextcloud_ingress.yaml
+    - ./confs/nginx/deploy.yaml
+    - ./confs/nginx/nginx-service.yaml
+    - ./confs/nginx/nginx_configmap.yaml

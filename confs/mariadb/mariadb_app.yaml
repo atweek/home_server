@@ -22,32 +22,16 @@
 #       - name: mariadb 
 #         image: mariadb:latest 
 #         ports:
-#           - containerPort: 3306 
-#         args:
-#           - --transaction-isolation=READ-COMMITTED
-#           - --binlog-format=ROW
-#           - --max-connections=1000
+#           - containerPort: 3306
 #         env:
-#             - name: MARIADB_DATABASE
-#               valueFrom:
-#                 secretKeyRef:
-#                   key: MYSQL_DATABASE
-#                   name: apps-secrets
-#             - name: MARIADB_PASSWORD
-#               valueFrom:
-#                 secretKeyRef:
-#                   key: MYSQL_PASSWORD
-#                   name: apps-secrets
-#             - name: MARIADB_USER
-#               valueFrom:
-#                 secretKeyRef:
-#                   key: MYSQL_USER
-#                   name: apps-secrets
-#             - name: MARIADB_ROOT_PASSWORD
-#               valueFrom:
-#                 secretKeyRef:
-#                   key: MYSQL_ROOT_PASSWORD
-#                   name: apps-secrets
+#         - name: MARIADB_DATABASE
+#           value: test
+#         - name: MARIADB_PASSWORD
+#           value: test
+#         - name: MARIADB_USER
+#           value: test
+#         - name: MARIADB_ROOT_PASSWORD
+#           value: test
 #         volumeMounts:
 #         - name: mariadb-data
 #           mountPath: /var/lib/mysql
@@ -78,14 +62,26 @@ spec:
         ports:
           - containerPort: 3306
         env:
-        - name: MARIADB_DATABASE
-          value: test
-        - name: MARIADB_PASSWORD
-          value: test
-        - name: MARIADB_USER
-          value: test
-        - name: MARIADB_ROOT_PASSWORD
-          value: test
+          - name: MARIADB_DATABASE
+            valueFrom:
+              secretKeyRef:
+                key: MYSQL_DATABASE
+                name: apps-secrets
+          - name: MARIADB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: MYSQL_PASSWORD
+                name: apps-secrets
+          - name: MARIADB_USER
+            valueFrom:
+              secretKeyRef:
+                key: MYSQL_USER
+                name: apps-secrets
+          - name: MARIADB_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: MYSQL_PASSWORD
+                name: apps-secrets
         volumeMounts:
         - name: mariadb-data
           mountPath: /var/lib/mysql

@@ -24,10 +24,14 @@ spec:
           ports:
             - containerPort: 80
           env:
+            - name: PHP_MEMORY_LIMI
+              value: 5G
+            - name: PHP_UPLOAD_LIMIT
+              value: 5G
             - name: REDIS_HOST
               value: redis
             - name: MYSQL_HOST
-              value: mariadb 
+              value: mariadb
             - name: MYSQL_DATABASE
               valueFrom:
                 secretKeyRef:
@@ -49,7 +53,7 @@ spec:
                   key: MYSQL_PASSWORD
                   name: apps-secrets
             - name: NEXTCLOUD_ADMIN_USER
-              value: "test"
+              value: "admin"
             - name: NEXTCLOUD_TRUSTED_DOMAINS
               valueFrom:
                 secretKeyRef:
