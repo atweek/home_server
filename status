@@ -1,0 +1,54 @@
+NAMESPACE       NAME                                            READY   STATUS      RESTARTS   AGE   L
+kube-system     pod/coredns-59b4f5bbd5-9jdzz                    1/1     Running     0          24h   
+kube-system     pod/local-path-provisioner-76d776f6f9-qm7wg     1/1     Running     0          24h   
+kube-system     pod/metrics-server-7b67f64457-rkw65             1/1     Running     0          24h   
+cert-manager    pod/cert-manager-cainjector-5fcd49c96-tj4nh     1/1     Running     0          23h   
+cert-manager    pod/cert-manager-6ffb79dfdb-9hjf7               1/1     Running     0          23h   
+cert-manager    pod/cert-manager-webhook-796ff7697b-j2rrh       1/1     Running     0          23h   
+default         pod/redis-bb98bb69c-bpr5z                       1/1     Running     0          23h   
+default         pod/mariadb-test                                1/1     Running     0          22h   
+default         pod/mariadb-7cb5894b69-b45k6                    1/1     Running     0          22h   
+default         pod/nextcloud-6dbdd5c8c7-ht4gk                  1/1     Running     0          22h   
+ingress-nginx   pod/ingress-nginx-admission-create-zfjw9        0/1     Completed   0          22h   
+ingress-nginx   pod/ingress-nginx-admission-patch-t28wp         0/1     Completed   1          22h   
+ingress-nginx   pod/ingress-nginx-controller-78d65fdc4c-n66fz   1/1     Running     0          22h   
+
+NAMESPACE       NAME                                         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE   L
+default         service/kubernetes                           ClusterIP   10.43.0.1       <none>        443/TCP                      24h   
+kube-system     service/kube-dns                             ClusterIP   10.43.0.10      <none>        53/UDP,53/TCP,9153/TCP       24h   
+kube-system     service/metrics-server                       ClusterIP   10.43.10.247    <none>        443/TCP                      24h   
+cert-manager    service/cert-manager                         ClusterIP   10.43.175.114   <none>        9402/TCP                     23h   
+cert-manager    service/cert-manager-webhook                 ClusterIP   10.43.160.39    <none>        443/TCP                      23h   
+default         service/mariadb                              ClusterIP   10.43.61.110    <none>        3306/TCP                     23h   
+default         service/redis                                ClusterIP   10.43.242.119   <none>        6379/TCP                     23h   
+default         service/nextcloud                            ClusterIP   10.43.237.0     <none>        80/TCP                       23h   
+ingress-nginx   service/ingress-nginx-controller             NodePort    10.43.22.121    <none>        80:31260/TCP,443:32453/TCP   22h   
+ingress-nginx   service/ingress-nginx-controller-admission   ClusterIP   10.43.231.171   <none>        443/TCP                      22h   
+
+NAMESPACE       NAME                                       READY   UP-TO-DATE   AVAILABLE   AGE   L
+kube-system     deployment.apps/coredns                    1/1     1            1           24h   
+kube-system     deployment.apps/local-path-provisioner     1/1     1            1           24h   
+kube-system     deployment.apps/metrics-server             1/1     1            1           24h   
+cert-manager    deployment.apps/cert-manager-cainjector    1/1     1            1           23h   
+cert-manager    deployment.apps/cert-manager               1/1     1            1           23h   
+cert-manager    deployment.apps/cert-manager-webhook       1/1     1            1           23h   
+default         deployment.apps/redis                      1/1     1            1           23h   
+default         deployment.apps/mariadb                    1/1     1            1           22h   
+default         deployment.apps/nextcloud                  1/1     1            1           22h   
+ingress-nginx   deployment.apps/ingress-nginx-controller   1/1     1            1           22h   
+
+NAMESPACE       NAME                                                  DESIRED   CURRENT   READY   AGE   L
+kube-system     replicaset.apps/coredns-59b4f5bbd5                    1         1         1       24h   
+kube-system     replicaset.apps/local-path-provisioner-76d776f6f9     1         1         1       24h   
+kube-system     replicaset.apps/metrics-server-7b67f64457             1         1         1       24h   
+cert-manager    replicaset.apps/cert-manager-cainjector-5fcd49c96     1         1         1       23h   
+cert-manager    replicaset.apps/cert-manager-6ffb79dfdb               1         1         1       23h   
+cert-manager    replicaset.apps/cert-manager-webhook-796ff7697b       1         1         1       23h   
+default         replicaset.apps/redis-bb98bb69c                       1         1         1       23h   
+default         replicaset.apps/mariadb-7cb5894b69                    1         1         1       22h   
+default         replicaset.apps/nextcloud-6dbdd5c8c7                  1         1         1       22h   
+ingress-nginx   replicaset.apps/ingress-nginx-controller-78d65fdc4c   1         1         1       22h   
+
+NAMESPACE       NAME                                       COMPLETIONS   DURATION   AGE   L
+ingress-nginx   job.batch/ingress-nginx-admission-create   1/1           4s         22h   
+ingress-nginx   job.batch/ingress-nginx-admission-patch    1/1           5s         22h   

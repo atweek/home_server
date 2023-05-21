@@ -1,0 +1,23 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: nextcloud-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 10240m
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: orange.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nextcloud
+            port:
+              number: 80
+  tls:
+  - hosts:
+     - orange.local
+    secretName: ssl-cert-staging

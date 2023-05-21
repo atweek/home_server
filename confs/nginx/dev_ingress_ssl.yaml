@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: home-ingress
+  # namespace: foo
+spec:
+  # ingressClassName: nginx
+  rules:
+    - host: orange.pi
+      http:
+        paths:
+          - pathType: Prefix
+            backend:
+              service:
+                name: nextcloud
+                port:
+                  number: 80
+            path: /
+  tls:
+    - hosts:
+      - nextcloud.local
+      secretName: ingress-tls
