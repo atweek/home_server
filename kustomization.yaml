@@ -11,3 +11,4 @@ resources:
     - ./confs/nginx/deploy.yaml
     - ./confs/nginx/nginx-service.yaml
     - ./confs/nginx/nginx_configmap.yaml
+    - ./confs/cert-manager/lestencrypt-staging.yaml

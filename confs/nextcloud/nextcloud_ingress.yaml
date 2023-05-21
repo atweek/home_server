@@ -17,3 +17,7 @@ spec:
             name: nextcloud
             port:
               number: 80
+  tls:
+  - hosts:
+     - orange.local
+    secretName: ssl-cert-staging

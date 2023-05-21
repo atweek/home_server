@@ -15,7 +15,7 @@ spec:
         app: nextcloud
     spec:
       volumes:
-        - name: nextcloud-storage
+        - name: nextcloud-pvc
           persistentVolumeClaim:
             claimName: nextcloud-pvc
       containers:
@@ -61,4 +61,4 @@ spec:
                     name: apps-secrets
           volumeMounts:
             - mountPath: /var/www/html
-              name: nextcloud-storage
+              name: nextcloud-pvc

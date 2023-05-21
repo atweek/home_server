@@ -53,7 +53,7 @@ spec:
         app: mariadb 
     spec:
       volumes:
-      - name: mariadb-data
+      - name: mariadb-pvc
         persistentVolumeClaim:
           claimName: mariadb-pvc
       containers:
@@ -83,5 +83,5 @@ spec:
                 key: MYSQL_PASSWORD
                 name: apps-secrets
         volumeMounts:
-        - name: mariadb-data
+        - name: mariadb-pvc
           mountPath: /var/lib/mysql
