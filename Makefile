@@ -8,10 +8,7 @@ uninstall:
 	/usr/local/bin/k3s-uninstall.sh
 	
 run:
-	kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.yaml
-	kubectl apply -k .
-	# export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
-	kubectl get all -ALL
+	./run.sh
 
 	
 mount:

@@ -9,4 +9,6 @@ kubectl apply -f ./confs/cert-manager
 sleep 10
 kubectl apply -k .
 sleep 60
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 echo "[ГОТОВО]"
