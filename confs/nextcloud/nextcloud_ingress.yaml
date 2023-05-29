@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: orange.local
+  - host: atweek.fun
     http:
       paths:
       - path: /
@@ -19,5 +19,5 @@ spec:
               number: 80
   tls:
   - hosts:
-     - orange.local
-    secretName: ssl-cert-staging
+     - atweek.fun
+    secretName: ssl-cert-production
