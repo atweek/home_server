@@ -2,30 +2,30 @@
 # apiVersion: apps/v1
 # kind: Deployment
 # metadata:
-#   name: mariadb 
+#   name: trans 
 #   labels:
-#     app: mariadb 
+#     app: trans 
 # spec:
 #   replicas: 1
 #   selector:
 #     matchLabels:
-#       app: mariadb 
+#       app: trans 
 #   template:
 #     metadata:
 #       labels:
-#         app: mariadb 
+#         app: trans 
 #     spec:
 #       volumes:
-#       - name: mariadb-pvc
+#       - name: trans-pvc
 #         persistentVolumeClaim:
-#           claimName: mariadb-pvc
+#           claimName: trans-pvc
 #       containers:
-#       - name: mariadb 
-#         image: mariadb:latest 
+#       - name: trans 
+#         image: trans:latest 
 #         ports:
 #           - containerPort: 3306
 #         env:
 #           ????
 #         volumeMounts:
-#         - name: mariadb-pvc
+#         - name: trans-pvc
 #           mountPath: /var/lib/mysql
