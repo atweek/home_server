@@ -1,29 +1,33 @@
- apiVersion: cert-manager.io/v1
- kind: Certificate
- metadata:
-   name: ssl-cert-staging
-   namespace: default
- spec:
-   secretName: ssl-cert-staging
-   issuerRef:
-     name: letsencrypt-staging
-     kind: ClusterIssuer
-   commonName: atweek.fun
-   dnsNames:
-   - atweek.fun
-   - "*.atweek.fun"
----
- apiVersion: cert-manager.io/v1
- kind: Certificate
- metadata:
-   name: ssl-cert-production
-   namespace: default
- spec:
-   secretName: ssl-cert-production
-   issuerRef:
-     name: letsencrypt-production
-     kind: ClusterIssuer
-   commonName: atweek.fun
-   dnsNames:
-   - atweek.fun
-   - "*.atweek.fun"
+# apiVersion: cert-manager.io/v1
+# kind: Certificate
+# metadata:
+#   name: ssl-cert-staging
+#   namespace: default
+# spec:
+#   secretName: ssl-cert-staging
+#   issuerRef:
+#     name: letsencrypt-staging
+#     kind: ClusterIssuer
+#   commonName: atweek.fun
+#   dnsNames:
+#   - atweek.fun
+#   - argocd.atweek.fun
+#   - nextcloud.atweek.fun
+#   # - transmission.atweek.fun
+# ---
+# apiVersion: cert-manager.io/v1
+# kind: Certificate
+# metadata:
+#   name: ssl-cert-production
+#   namespace: default
+# spec:
+#   secretName: ssl-cert-production
+#   issuerRef:
+#     name: letsencrypt-production
+#     kind: ClusterIssuer
+#   commonName: atweek.fun
+#   dnsNames:
+#   - atweek.fun
+#   - argocd.atweek.fun
+#   - nextcloud.atweek.fun
+#   # - transmission.atweek.fun
