@@ -57,6 +57,24 @@ spec:
 ...
 ---
 apiVersion: v1
+kind: PersistentVolume
+metadata:
+    name: transmission-pv
+    labels:
+        type: local
+spec:
+    storageClassName: transmission-disk
+    capacity:
+        storage: 5Gi
+    volumeMode: Filesystem
+    accessModes:
+        - ReadWriteOnce
+    hostPath:
+        path: /mnt/flesh/transmission
+    persistentVolumeReclaimPolicy: Delete #Retain в будущем заменеить                   
+...
+---
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
     name: mariadb-pvc
@@ -82,3 +100,17 @@ spec:
             storage: 9Gi
     storageClassName: nextcloud-disk
     volumeName: nextcloud-pv
+...
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: transmission-pvc
+spec:
+    accessModes:
+        - ReadWriteOnce
+    resources:
+        requests:
+            storage: 5Gi
+    storageClassName: transmission-disk
+    volumeName: transmission-pv

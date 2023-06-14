@@ -5,11 +5,13 @@ metadata:
 spec:
   destination:
     name: ''
-    namespace: 'home'
+    namespace: home
     server: 'https://kubernetes.default.svc'
   source:
     path: confs
     repoURL: 'git@github.com:atweek/home_server.git'
     targetRevision: dev
+    directory:
+      recurse: true
   sources: []
   project: default
