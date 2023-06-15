@@ -48,5 +48,5 @@ spec:
           volumes:
             - name: transmission-pvc
               hostPath:
-                path: /opt/transmission/
+                path: /mnt/flesh/transmission
                 type: DirectoryOrCreate

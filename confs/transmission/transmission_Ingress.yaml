@@ -17,7 +17,7 @@ spec:
             name: transmission-service
             port:
               number: 9091
-  # tls:
-  # - hosts:
-  #    - transmission.atweek.fun
-  #   secretName: ssl-cert-production
+  tls:
+  - hosts:
+     - transmission.atweek.fun
+    secretName: ssl-cert-production
