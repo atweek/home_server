@@ -14,10 +14,6 @@ spec:
             labels:
                 app: transmission
         spec:
-          volumes:
-            - name: transmission-pvc
-              persistentVolumeClaim:
-                claimName: transmission-pvc
           containers:
             - name: transmission-container
               image: ghcr.io/linuxserver/transmission
@@ -43,29 +39,14 @@ spec:
                         name: apps-secrets
                         key: TRANSMISSION_PASS
               volumeMounts:
-                - mountPath: /opt/transmission/
-                  name: transmission-pvc
-
-              # volumeMounts:
-              # - mountPath: /downloads
-              #   name: downloads-volume
-              # - mountPath: /config
-              #   name: config-volume
-              # - mountPath: /watch
-              #   name: watch-volume
-            # volumes:
-            # - name: downloads-volume
-            #   hostPath:
-            #     path: /opt/transmission/downloads
-            #     type: DirectoryOrCreate
-            # - name: config-volume
-            #   hostPath:
-            #     path: /opt/transmission/config
-            #     type: DirectoryOrCreate
-            # - name: watch-volume
-            #   hostPath:
-            #     path: /opt/transmission/watch
-            #     type: DirectoryOrCreate
-
-# ---
-
+              - mountPath: /downloads
+                name: transmission-pvc
+              - mountPath: /config
+                name: transmission-pvc
+              - mountPath: /watch
+                name: transmission-pvc
+          volumes:
+            - name: transmission-pvc
+              hostPath:
+                path: /opt/transmission/
+                type: DirectoryOrCreate
