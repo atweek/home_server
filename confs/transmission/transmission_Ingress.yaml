@@ -1,23 +1,23 @@
 kind: Ingress
 apiVersion: networking.k8s.io/v1
 metadata:
-  name: nextcloud-ingress
+  name: transmission-ingress
   annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: 10240m
+    nginx.ingress.kubernetes.io/proxy-body-size: 1024m
 spec:
   ingressClassName: nginx
   rules:
-  - host: nextcloud.atweek.fun
+  - host: transmission.atweek.fun
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: nextcloud
+            name: transmission-service
             port:
-              number: 80
+              number: 9091
   tls:
   - hosts:
-     - nextcloud.atweek.fun
+     - transmission.atweek.fun
     secretName: ssl-cert-production

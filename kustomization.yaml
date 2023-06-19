@@ -12,3 +12,6 @@ resources:
     - ./confs/nginx/nginx-service.yaml
     - ./confs/nginx/nginx_configmap.yaml
     - ./confs/cert-manager/lestencrypt-staging.yaml
+    - ./confs/transmission/transmission_app.yaml
+    - ./confs/transmission/transmission_Ingress.yaml
+    - ./confs/transmission/transmission_service.yaml

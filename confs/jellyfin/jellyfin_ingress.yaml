@@ -1,23 +1,23 @@
 kind: Ingress
 apiVersion: networking.k8s.io/v1
 metadata:
-  name: nextcloud-ingress
+  name: jellyfin-ingress
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: 10240m
 spec:
   ingressClassName: nginx
   rules:
-  - host: nextcloud.atweek.fun
+  - host: jellyfin.atweek.fun
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: nextcloud
+            name: jellyfin
             port:
-              number: 80
-  tls:
-  - hosts:
-     - nextcloud.atweek.fun
-    secretName: ssl-cert-production
+              number: 8096
+  # tls:
+  # - hosts:
+  #    - jellyfin.atweek.fun
+  #   secretName: ssl-cert-production
