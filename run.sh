@@ -3,7 +3,6 @@
 RED='\033[0;31m'
 NC='\033[0m'
 
-kubectl create namespace home
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 echo -e "${RED}[CERT-MANAGER]${NC}"
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.yaml
