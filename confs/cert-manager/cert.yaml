@@ -14,6 +14,7 @@ spec:
   - argocd.atweek.fun
   - nextcloud.atweek.fun
   - transmission.atweek.fun
+  - jellyfin.atweek.fun
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
@@ -31,3 +32,4 @@ spec:
   - argocd.atweek.fun
   - nextcloud.atweek.fun
   - transmission.atweek.fun
+  - jellyfin.atweek.fun

@@ -1,0 +1,20 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: pihole
+spec:
+  selector:
+    app: pihole
+  ports:
+  - port: 80
+    name: pihole-admin
+  - port: 53
+    targetPort: 53
+    protocol: TCP
+    name: dns-tcp
+  - port: 53
+    targetPort: 53
+    protocol: UDP
+    name: dns-udp
+  type: ClusterIP
+  clusterIp: 192.168.1.13

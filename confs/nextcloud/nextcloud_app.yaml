@@ -56,10 +56,6 @@ spec:
               value: "admin"
             - name: NEXTCLOUD_TRUSTED_DOMAINS
               value: nextcloud.atweek.fun
-              #valueFrom:
-              #  secretKeyRef:
-              #      key: NEXTCLOUD_TRUSTED_DOMAINS
-              #      name: apps-secrets
           volumeMounts:
             - mountPath: /var/www/html
               name: nextcloud-pvc

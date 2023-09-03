@@ -1,26 +1,3 @@
-# kind: StorageClass
-# apiVersion: storage.k8s.io/v1
-# metadata:
-#   name: local-storage
-# provisioner: kubernetes.io/no-provisione
-# ---
-# apiVersion: v1
-# kind: PersistentVolume
-# metadata:
-#     name: maria-pv
-# spec:
-#     capacity:
-#         storage: 10Gi
-#     volumeMode: Filesystem
-#     accessModes:
-#         - ReadWriteOnce 
-#     persistentVolumeReclaimPolicy: Delete #Retain в будущем заменеить
-#     storageClassName: "local-storage"
-#     local:
-#         path: /mnt/flesh/mariadb #TODO Надо потом добавть
-                    
-# ...
-# ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -35,44 +12,42 @@ spec:
     accessModes:
         - ReadWriteOnce
     hostPath:
-        path: /mnt/flesh/mariadb
-    persistentVolumeReclaimPolicy: Delete #Retain в будущем заменеить  
+        path: /mnt/disk/mariadb
+    persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить  
 ---
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-    name: nextcloud-pv
-    labels:
-        type: local
-spec:
-    storageClassName: nextcloud-disk
-    capacity:
-        storage: 10Gi
-    volumeMode: Filesystem
-    accessModes:
-        - ReadWriteOnce
-    hostPath:
-        path: /mnt/flesh/nextcloud
-    persistentVolumeReclaimPolicy: Delete #Retain в будущем заменеить                   
-...
+ apiVersion: v1
+ kind: PersistentVolume
+ metadata:
+     name: nextcloud-pv
+     labels:
+         type: local
+ spec:
+     storageClassName: nextcloud-disk
+     capacity:
+         storage: 10Gi
+     volumeMode: Filesystem
+     accessModes:
+         - ReadWriteOnce
+     hostPath:
+         path: /mnt/disk/nextcloud
+     persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить                   
 ---
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-    name: transmission-pv
-    labels:
-        type: local
-spec:
-    storageClassName: transmission-disk
-    capacity:
-        storage: 5Gi
-    volumeMode: Filesystem
-    accessModes:
-        - ReadWriteOnce
-    hostPath:
-        path: /mnt/flesh/transmission
-    persistentVolumeReclaimPolicy: Delete #Retain в будущем заменеить                   
-...
+ apiVersion: v1
+ kind: PersistentVolume
+ metadata:
+     name: transmission-pv
+     labels:
+         type: local
+ spec:
+     storageClassName: transmission-disk
+     capacity:
+         storage: 5Gi
+     volumeMode: Filesystem
+     accessModes:
+         - ReadWriteOnce
+     hostPath:
+         path: /mnt/disk/transmission
+     persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить                   
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -86,7 +61,6 @@ spec:
             storage: 9Gi
     storageClassName: mariadb-disk
     volumeName: mariadb-pv
-...
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

@@ -1,0 +1,21 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: pihole-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: pi-hole.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: pihole
+            port:
+              number: 80
+  # tls:
+  # - hosts:
+  #    - jellyfin.atweek.fun
+  #   secretName: ssl-cert-production

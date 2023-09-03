@@ -1,0 +1,38 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: pihole-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pihole
+  template:
+    metadata:
+      labels:
+        app: pihole
+    spec:
+      containers:
+      - name: pihole-c
+        image: pihole/pihole:latest
+        imagePullPolicy: Always
+        env:
+        - name: TZ
+          value: Europe/Moscow
+        - name: WEBPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: apps-secrets
+              key: TRANSMISSION_PASS
+        volumeMounts:
+        - name: pihole-pvc
+          mountPath: "/etc/pihole"
+        - name: dnsmasqd-pvc
+          mountPath: "/etc/dnsmasq.d"
+      volumes:
+      - name: pihole-pvc
+        persistentVolumeClaim:
+          claimName: pihole-pvc
+      - name: dnsmasqd-pvc
+        persistentVolumeClaim:
+          claimName: dnsmasqd-pvc
