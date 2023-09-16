@@ -22,6 +22,9 @@ kubectl apply -f confs/argocd/ingress.yaml
 sleep 20
 argocd admin initial-password -n argocd > confs/other/argopass
 sleep 10
+echo -e "${RED}[JELLYFIN]${NC}"
+kubectl apply -f ./confs/jellyfin
+sleep 20
 echo -e "${RED}[OTHER]${NC}"
 kubectl apply -k .
 sleep 60
