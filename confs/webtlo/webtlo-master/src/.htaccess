@@ -1,0 +1,21 @@
+AddDefaultCharset UTF-8
+
+<Files ~ "\.(ini|db|log)$">
+	Require all denied
+</Files>
+
+<IfModule mod_php.c>
+	php_value max_execution_time 0
+	php_value max_input_time 0
+	php_value max_input_vars 100000
+	php_value memory_limit 2G
+</IfModule>
+
+<IfModule mod_headers.c>
+	Header set Cache-Control "no-store, no-cache"
+</IfModule>
+
+<IfModule mod_expires.c>
+	ExpiresActive On
+	ExpiresDefault "now"
+</IfModule>

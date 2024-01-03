@@ -1,0 +1,19 @@
+# PHPSTORM idea settings
+.idea/*
+!.idea/fileTemplates
+!.idea/codeStyles
+
+/.vscode
+/.Trash*
+/data
+/webtlo-data*
+/test*
+.php-cs-fixer.cache
+*.db
+*.sqlite
+*.sql
+*.torrent
+*.log
+*.jpg
+
+vendor/

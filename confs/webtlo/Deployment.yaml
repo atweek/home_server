@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webtlo
+  labels:
+    app: webtlo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webtlo
+  template:
+    metadata:
+      labels:
+        app: webtlo
+    spec:
+      containers:
+        - image: ramille/webtlo:arm_0.1
+          name: webtlo
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - mountPath: /downloads
+              name: transmission-pvc
+      volumes:
+        - name: transmission-pvc
+          hostPath:
+            path: /mnt/disk/transmission/guardian
+            type: DirectoryOrCreate
+

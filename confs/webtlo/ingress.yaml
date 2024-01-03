@@ -1,0 +1,21 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: webtlo-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: webtlo.atweek.work
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: webtlo
+            port:
+              number: 80
+  tls:
+  - hosts:
+     - webtlo.atweek.work
+    secretName: ssl-cert-production

@@ -1,3 +1,22 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+    name: jellyfin-pv
+    labels:
+        type: local
+spec:
+    storageClassName: jellyfin-disk
+    capacity:
+        storage: 1Gi
+    volumeMode: Filesystem
+    accessModes:
+        - ReadWriteOnce
+    hostPath:
+        path: /mnt/disk/jellyfin
+    persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить  
+
+---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -50,6 +69,36 @@ spec:
      persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить                   
 ---
 apiVersion: v1
+kind: PersistentVolume
+metadata:
+    name: homepage-pv
+    labels:
+        type: local
+spec:
+    storageClassName: homepage-disk
+    capacity:
+        storage: 10Gi
+    volumeMode: Filesystem
+    accessModes:
+        - ReadWriteOnce
+    hostPath:
+        path: /mnt/disk/homepage
+    persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить 
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: homepage-pvc
+spec:
+    accessModes:
+        - ReadWriteOnce
+    resources:
+        requests:
+            storage: 1Gi
+    storageClassName: homepage-disk
+    volumeName: homepage-pv
+---
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
     name: mariadb-pvc
@@ -73,8 +122,6 @@ spec:
         requests:
             storage: 9Gi
     storageClassName: nextcloud-disk
-    volumeName: nextcloud-pv
-...
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -88,3 +135,17 @@ spec:
             storage: 5Gi
     storageClassName: transmission-disk
     volumeName: transmission-pv
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: jellyfin-pvc-config
+spec:
+    accessModes:
+        - ReadWriteOnce
+    resources:
+        requests:
+            storage: 1Gi
+    storageClassName: jellyfin-disk
+    volumeName: jellyfin-pv
+---

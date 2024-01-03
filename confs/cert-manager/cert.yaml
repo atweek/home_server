@@ -26,10 +26,13 @@
    issuerRef:
      name: letsencrypt-production
      kind: ClusterIssuer
-   commonName: atweek.fun
+   commonName: atweek.work
    dnsNames:
-   - atweek.fun
-   - argocd.atweek.fun
-   - nextcloud.atweek.fun
-   - transmission.atweek.fun
-   - jellyfin.atweek.fun
+   - atweek.work
+   - argocd.atweek.work
+   - nextcloud.atweek.work
+   - transmission.atweek.work
+   - jellyfin.atweek.work
+   - grafana.atweek.work
+   - guardian.atweek.work
+   - webtlo.atweek.work

@@ -1,0 +1,23 @@
+kind: Service
+apiVersion: v1
+metadata:
+    name: guardian-transmission-service
+    labels:
+      app: guardian-transmission-service
+spec:
+    # type: NodePort
+    selector:
+        app: guardian-transmission
+    ports:
+    - protocol: TCP
+      name: web-interface
+      port: 9091
+      # nodePort: 90
+    - protocol: TCP
+      name: torrent-tcp
+      port: 51413
+      # nodePort: 51413
+    - protocol: UDP
+      name: torrents-udp
+      port: 51413
+      # nodePort: 51413

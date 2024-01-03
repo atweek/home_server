@@ -18,6 +18,9 @@ spec:
       - name: transmission-pvc
         persistentVolumeClaim:
           claimName: transmission-pvc
+      - name: jellyfin-pvc-config
+        persistentVolumeClaim:
+          claimName: jellyfin-pvc-config
       containers:
       - env:
         - name: JELLYFIN_PublishedServerUrl 
@@ -52,5 +55,7 @@ spec:
         volumeMounts:
         - mountPath: /jellyfin/
           name: transmission-pvc
+        - mountPath: /config
+          name: jellyfin-pvc-config
       dnsPolicy: ClusterFirst
       restartPolicy: Always
