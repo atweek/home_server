@@ -15,7 +15,23 @@ spec:
     hostPath:
         path: /mnt/disk/jellyfin
     persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить  
-
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+    name: ha-pvc
+    labels:
+        type: local
+spec:
+    storageClassName: ha-disk
+    capacity:
+        storage: 1Gi
+    volumeMode: Filesystem
+    accessModes:
+        - ReadWriteOnce
+    hostPath:
+        path: /mnt/disk/ha
+    persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить  
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -148,4 +164,17 @@ spec:
             storage: 1Gi
     storageClassName: jellyfin-disk
     volumeName: jellyfin-pv
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: ha-pvc
+spec:
+    accessModes:
+        - ReadWriteOnce
+    resources:
+        requests:
+            storage: 1Gi
+    storageClassName: ha-disk
+    volumeName: ha-pvc
 ---

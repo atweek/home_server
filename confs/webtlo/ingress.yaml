@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: webtlo.atweek.work
+  - host: webtlo.lab
     http:
       paths:
       - path: /
@@ -15,7 +15,32 @@ spec:
             name: webtlo
             port:
               number: 80
-  tls:
-  - hosts:
-     - webtlo.atweek.work
-    secretName: ssl-cert-production
+  # tls:
+  # - hosts:
+  #    - webtlo.lab
+  #   secretName: ssl-cert-production
+
+---
+
+# kind: Ingress
+# apiVersion: networking.k8s.io/v1
+# metadata:
+#   name: webtlo-ingress-web
+# spec:
+#   ingressClassName: nginx
+#   rules:
+#   - host: webtlo.atweek.work
+#     http:
+#       paths:
+#       - path: /
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: webtlo
+#             port:
+#               number: 80
+#   tls:
+#   - hosts:
+#      - webtlo.atweek.work
+#     secretName: ssl-cert-production
+

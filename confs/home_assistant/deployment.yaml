@@ -1,0 +1,44 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: homeassistant
+  name: homeassistant
+spec:
+  revisionHistoryLimit: 3
+  replicas: 0
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: homeassistant
+  template:
+    metadata:
+      labels:
+        app: homeassistant
+    spec:
+#      securityContext:
+#        fsGroup: 33
+#        fsGroupChangePolicy: "OnRootMismatch"
+      containers:
+      - name: homeassistant
+        image: "ghcr.io/home-assistant/home-assistant:2024.1"
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          privileged: null
+        envFrom:
+          - configMapRef:
+              name: homeassistant-config
+        ports:
+          - name: http
+            containerPort: 8123
+            protocol: TCP
+        volumeMounts:
+          - name: ha-pvc
+            mountPath: /config
+      restartPolicy: Always
+      volumes:
+        - name: ha-pvc
+          persistentVolumeClaim:
+            claimName: ha-pvc
