@@ -21,7 +21,7 @@ spec:
           claimName: mariadb-pvc
       containers:
       - name: mariadb 
-        image: mariadb:latest 
+        image: mirror.gcr.io/mariadb:latest 
         ports:
           - containerPort: 3306
         env:

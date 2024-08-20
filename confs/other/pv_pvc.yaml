@@ -19,6 +19,24 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
+    name: nexus-pv
+    labels:
+        type: local
+spec:
+    storageClassName: nexus-disk
+    capacity:
+        storage: 1Gi
+    volumeMode: Filesystem
+    accessModes:
+        - ReadWriteOnce
+    hostPath:
+        path: /mnt/disk/nexus
+    persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить  
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
     name: ha-pvc
     labels:
         type: local
@@ -113,6 +131,20 @@ spec:
             storage: 1Gi
     storageClassName: homepage-disk
     volumeName: homepage-pv
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: nexus-pvc
+spec:
+    accessModes:
+        - ReadWriteOnce
+    resources:
+        requests:
+            storage: 1Gi
+    storageClassName: nexus-disk
+    volumeName: nexus-pv
+
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

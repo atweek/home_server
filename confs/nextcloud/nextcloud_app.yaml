@@ -19,7 +19,7 @@ spec:
           persistentVolumeClaim:
             claimName: nextcloud-pvc
       containers:
-        - image: nextcloud:apache
+        - image: nextcloud:stable
           name: nextcloud
           ports:
             - containerPort: 80

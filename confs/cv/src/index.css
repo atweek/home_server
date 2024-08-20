@@ -1,0 +1,65 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+h1 {
+  margin: 20px 0 10px;
+  font-size: 24px;
+}
+
+.personal-info p, .job-desired p, .experience ul, .skills ul, .additional-info p {
+  margin: 10px 0;
+}
+
+section {
+  margin: 20px 0;
+}
+
+h2 {
+  font-size: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  background-color: #e9e9e9;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.content {
+  display: none;
+}

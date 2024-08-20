@@ -1,0 +1,23 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: nextcloud-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 10000G
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: nextcloud.atweek.work
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nextcloud
+            port:
+              number: 80
+  tls:
+  - hosts:
+     - nextcloud.atweek.work
+    secretName: ssl-cert-production

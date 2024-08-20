@@ -1,0 +1,33 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: nexus-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 10000G
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: nexus.atweek.work
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nexus
+            port:
+              number: 8081
+  - host: docker.atweek.work
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nexus
+            port: 
+              number: 5000
+  tls:
+  - hosts:
+     - nexus.atweek.work
+    secretName: ssl-cert-production

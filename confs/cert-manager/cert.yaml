@@ -28,11 +28,15 @@
      kind: ClusterIssuer
    commonName: atweek.work
    dnsNames:
-   - atweek.work
-   - argocd.atweek.work
-   - nextcloud.atweek.work
-   - transmission.atweek.work
-   - jellyfin.atweek.work
-   - grafana.atweek.work
-   - guardian.atweek.work
-   - webtlo.atweek.work
+    - atweek.work
+    - nextcloud.atweek.work
+    - transmission.atweek.work
+    - jellyfin.atweek.work
+    - grafana.atweek.work
+    - nexus.atweek.work
+    - docker.atweek.work
+    - lhawick.atweek.work
+     #- guardian.atweek.work
+     #- argocd.atweek.work
+     #- webtlo.atweek.work
+   

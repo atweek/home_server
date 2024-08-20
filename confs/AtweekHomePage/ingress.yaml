@@ -24,6 +24,6 @@ spec:
             port:
               number: 80
   tls:
-  - hosts:
-     - atweek.work
-    secretName: ssl-cert-production
+    - hosts:
+      - atweek.work
+      secretName: atweek.work-tls

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="css/main.min.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="main-header__container container">
+            <form id="search-bar">
+                <input type="text" name="search-bar" id="search-bar-input" placeholder="Search..." autocomplete="off" tabindex="1">
+                <img id="change-browser-btn" draggable="false">
+                <ul class="search-suggests">
+                    <li style="display: none"><a href="#"></a></li>
+                    <li style="display: none"><a href="#"></a></li>
+                    <li style="display: none"><a href="#"></a></li>
+                    <li style="display: none"><a href="#"></a></li>
+                    <li style="display: none"><a href="#"></a></li>
+                    <li style="display: none"><a href="#"></a></li>
+                    <li style="display: none"><a href="#"></a></li>
+                    <li style="display: none"><a href="#"></a></li>
+                    <li style="display: none"><a href="#"></a></li>
+                    <li style="display: none"><a href="#"></a></li>
+                </ul>
+            </form>
+        </div>
+    </header>
+    <section class="links">
+        <div class="links__container container"></div>
+        <template id="link-template">
+            <a href="#" class="link"  draggable="true">
+                <img src="./img/icon_stub.png" class="link__icon" draggable="false">
+                <span class="link__title"></span>
+                <svg class="link__arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none">
+                    <path class="small-arrow"
+                        d="M3.645 14.1C3.6448 14.3409 3.70263 14.5783 3.81359 14.7922C3.92456 15.006 4.0854 15.19 4.2825 15.3285L8.085 18L4.2795 20.6865C4.08337 20.8251 3.92337 21.0087 3.81295 21.2219C3.70254 21.4352 3.64494 21.6718 3.645 21.912L3.81295 27L12.525 21.4464L18 18L12.525 14.5205L3.645 9L3.645 14.1Z"
+                        fill="url(#paint0_linear_307_19)" />
+                    <path class="small-arrow"
+                        d="M5.14951 25.536L5.15251 20.067L8.08651 17.991L5.15251 15.93L5.15101 10.4655L17.76 17.9655L5.14951 25.536Z"
+                        fill="url(#paint1_linear_307_19)" />
+                    <g class="big-arrow" filter="url(#filter0_bii_307_19)">
+                        <path
+                            d="M3.657 2.99849L3.6525 9.57449L12.525 14.85L17.775 17.955L12.525 21.105L3.6555 26.424L3.6915 33.009C3.69295 33.2725 3.76379 33.5309 3.89687 33.7583C4.02995 33.9857 4.22059 34.1741 4.4496 34.3044C4.6786 34.4347 4.93789 34.5024 5.20138 34.5007C5.46486 34.4989 5.72323 34.4278 5.9505 34.2945L31.608 19.2645C31.8341 19.1321 32.0216 18.9427 32.1518 18.7153C32.2819 18.4879 32.3503 18.2304 32.35 17.9684C32.3497 17.7064 32.2807 17.449 32.15 17.2219C32.0193 16.9948 31.8314 16.8059 31.605 16.674L5.913 1.70399C5.68515 1.57103 5.42627 1.50051 5.16246 1.49955C4.89866 1.49859 4.63927 1.56722 4.41046 1.69851C4.18165 1.82981 3.99151 2.01912 3.85922 2.24736C3.72694 2.4756 3.65718 2.73469 3.657 2.99849Z"
+                            fill="white" fill-opacity="0.2" />
+                    </g>
+                    <defs>
+                        <filter id="filter0_bii_307_19" x="-0.347504" y="-2.50046" width="36.6975" height="41.0012"
+                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                            <feGaussianBlur in="BackgroundImageFix" stdDeviation="2" />
+                            <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_307_19" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_307_19"
+                                result="shape" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="-4" />
+                            <feGaussianBlur stdDeviation="2" />
+                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.05 0" />
+                            <feBlend mode="normal" in2="shape" result="effect2_innerShadow_307_19" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dx="-4" dy="-4" />
+                            <feGaussianBlur stdDeviation="2" />
+                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.05 0" />
+                            <feBlend mode="normal" in2="effect2_innerShadow_307_19"
+                                result="effect3_innerShadow_307_19" />
+                        </filter>
+                        <linearGradient id="paint0_linear_307_19" x1="3.645" y1="18" x2="18" y2="18"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0.451042" stop-color="#2072FE" />
+                            <stop offset="1" stop-color="#07B4EB" />
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_307_19" x1="5.14951" y1="18.0008" x2="17.76" y2="18.0008"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0.451042" stop-color="#2072FE" />
+                            <stop offset="1" stop-color="#07B4EB" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </a>
+        </template>
+    </section>
+    <div class="absolute-elemets">
+        <button id="add-new-link-btn">
+            <svg viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M29.5 12.8333H21.1667V4.49998C21.1667 3.39491 20.7277 2.3351 19.9463 1.5537C19.1649 0.772301 18.1051 0.333313 17 0.333313C15.895 0.333313 14.8352 0.772301 14.0538 1.5537C13.2724 2.3351 12.8334 3.39491 12.8334 4.49998V12.8333H4.50004C3.39497 12.8333 2.33516 13.2723 1.55376 14.0537C0.772362 14.8351 0.333374 15.8949 0.333374 17C0.333374 18.105 0.772362 19.1649 1.55376 19.9463C2.33516 20.7277 3.39497 21.1666 4.50004 21.1666H12.8334V29.5C12.8334 30.605 13.2724 31.6649 14.0538 32.4463C14.8352 33.2277 15.895 33.6666 17 33.6666C18.1051 33.6666 19.1649 33.2277 19.9463 32.4463C20.7277 31.6649 21.1667 30.605 21.1667 29.5V21.1666H29.5C30.6051 21.1666 31.6649 20.7277 32.4463 19.9463C33.2277 19.1649 33.6667 18.105 33.6667 17C33.6667 15.8949 33.2277 14.8351 32.4463 14.0537C31.6649 13.2723 30.6051 12.8333 29.5 12.8333Z"
+                    fill="url(#paint0_linear_309_252)" />
+                <defs>
+                    <linearGradient id="paint0_linear_309_252" x1="17" y1="0.333313" x2="17" y2="33.6666"
+                        gradientUnits="userSpaceOnUse">
+                        <stop offset="0.451042" stop-color="#2072FE" />
+                        <stop offset="1" stop-color="#07B4EB" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </button>
+        <div id="context-menu">
+            <span id="context-menu__edit">Редактировать</span>
+            <span id="context-menu__delete">Удалить</span>
+        </div>
+    </div>
+    <dialog id="edit-link-dialog" class="dialog">
+        <form name="edit-link-dialog__form" id="edit-link-form">
+            <label for="linkTitle">
+                Название
+                <input type="text" id="linkTitle" name="linkTitle" placeholder="Название" required pattern="\S(.*\S)?" title="This field is required">
+            </label>
+            <label for="linkHref">
+                Ссылка
+                <input type="text" id="linkHref" name="linkHref" placeholder="Ссылка" required pattern="\S(.*\S)?" title="This field is required">
+            </label>
+            <label for="linkIcon" class="linkIcon">
+                Иконка
+                <input style="display: none;" type="file" id="linkIcon" name="linkIcon"
+                    accept="image/png, image/jpeg"/>
+                <img id="linkIcon__preview" class="linkIcon__preview">
+            </label>
+            <button id="save-link-btn" class="save-link-btn">Сохранить</button>
+        </form>
+        <?xml version="1.0" encoding="iso-8859-1"?>
+        <svg id="edit-link__close-btn" class="dialog-close-btn" fill="#000000" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+            <g>
+                <g>
+                    <path d="M256,0C114.84,0,0,114.842,0,256s114.84,256,256,256s256-114.842,256-256S397.16,0,256,0z M256,462.452
+			c-113.837,0-206.452-92.614-206.452-206.452S142.163,49.548,256,49.548S462.452,142.163,462.452,256S369.837,462.452,256,462.452z
+			" />
+                </g>
+            </g>
+            <g>
+                <g>
+                    <polygon points="355.269,191.767 320.233,156.731 256,220.964 191.767,156.731 156.731,191.767 220.964,256 156.731,320.233 
+			191.767,355.269 256,291.036 320.233,355.269 355.269,320.233 291.036,256 		" />
+                </g>
+            </g>
+        </svg>
+    </dialog>
+    <dialog id="add-link-dialog" class="dialog">
+        <form id="add-link-form">
+            <label>
+                Название
+                <input type="text" id="addLinkTitle" placeholder="Название" required pattern="\S(.*\S)?" title="This field is required">
+            </label>
+            <label>
+                Ссылка
+                <input type="text" id="addLinkHref" placeholder="Ссылка" required pattern="\S(.*\S)?" title="This field is required">
+            </label>
+            <label class="linkIcon">
+                Иконка
+                <input style="display: none;" type="file" id="addLinkIcon" name="linkIcon"
+                    accept="image/png, image/jpeg" required/>
+                <img id="addLinkIcon__preview" class="linkIcon__preview">
+            </label>
+            <button id="add-save-link-btn" class="save-link-btn">Сохранить</button>
+        </form>
+        <?xml version="1.0" encoding="iso-8859-1"?>
+        <svg id="add-link__close-btn" class="dialog-close-btn" fill="#000000" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+            <g>
+                <g>
+                    <path d="M256,0C114.84,0,0,114.842,0,256s114.84,256,256,256s256-114.842,256-256S397.16,0,256,0z M256,462.452
+			c-113.837,0-206.452-92.614-206.452-206.452S142.163,49.548,256,49.548S462.452,142.163,462.452,256S369.837,462.452,256,462.452z
+			" />
+                </g>
+            </g>
+            <g>
+                <g>
+                    <polygon points="355.269,191.767 320.233,156.731 256,220.964 191.767,156.731 156.731,191.767 220.964,256 156.731,320.233 
+			191.767,355.269 256,291.036 320.233,355.269 355.269,320.233 291.036,256 		" />
+                </g>
+            </g>
+        </svg>
+    </dialog>
+    <script src="./js/components/searchBar/searchBar.js"></script>
+    <script type="module" src="./js/utils/touch.js"></script>
+    <script defer type="module" src="js/utils/utils.js"></script>
+    <script defer type="module" src="js/firebase.js"></script>
+    <script defef type="module" src="js/init.js"></script>
+    <script defef type="module" src="js/components/contextMenu/contextMenu.js"></script>
+    <script defer type="module" src="js/components/link/link.js"></script>
+    <script defer type="module" src="js/components/linksManager/linksManager.js"></script>
+    <script defer type="module" src="js/components/addLinkForm/addLinkForm.js"></script>
+    <script defer type="module" src="js/utils/dragAndDrop.js"></script>
+</body>
+
+</html>

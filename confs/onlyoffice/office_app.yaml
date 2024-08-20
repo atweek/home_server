@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docservice
+  labels:
+    app: docservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docservice
+  template:
+    metadata:
+      labels:
+        app: docservice
+    spec:
+      containers:
+        - image: onlyoffice/documentserver
+          name: docsserver
+          ports:
+            - containerPort: 80

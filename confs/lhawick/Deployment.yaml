@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lhawick
+  labels:
+    app: lhawick
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lhawick
+  template:
+    metadata:
+      labels:
+        app: lhawick
+    spec:
+      containers:
+        - image: docker.atweek.work/lhawick:latest
+          name: lhawick
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: dockeratweekkey
