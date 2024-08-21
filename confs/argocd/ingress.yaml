@@ -14,7 +14,7 @@ metadata:
 spec:
   ingressClassName: "nginx"
   rules:
-  - host: argocd.atweek.fun
+  - host: argocd.atweek.fun 
     http:
       paths:
       - path: /
