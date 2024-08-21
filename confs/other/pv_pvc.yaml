@@ -12,8 +12,9 @@ spec:
     volumeMode: Filesystem
     accessModes:
         - ReadWriteOnce
-    hostPath:
-        path: /mnt/disk/jellyfin
+    nfs:
+        path: /mnt/big/jellyfin
+        server: orange3.atweek
     persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить  
 ---
 apiVersion: v1
@@ -29,8 +30,9 @@ spec:
     volumeMode: Filesystem
     accessModes:
         - ReadWriteOnce
-    hostPath:
-        path: /mnt/disk/nexus
+    nfs:
+        path: /mnt/big/nexus
+        server: orange3.atweek
     persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить  
 
 ---
@@ -47,8 +49,9 @@ spec:
     volumeMode: Filesystem
     accessModes:
         - ReadWriteOnce
-    hostPath:
-        path: /mnt/disk/ha
+    nfs:
+        path: /mnt/big/ha
+        server: orange3.atweek
     persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить  
 ---
 apiVersion: v1
@@ -64,8 +67,9 @@ spec:
     volumeMode: Filesystem
     accessModes:
         - ReadWriteOnce
-    hostPath:
-        path: /mnt/disk/mariadb
+    nfs:
+        path: /mnt/big/mariadb
+        server: orange3.atweek
     persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить  
 ---
  apiVersion: v1
@@ -81,8 +85,9 @@ spec:
      volumeMode: Filesystem
      accessModes:
          - ReadWriteOnce
-     hostPath:
-         path: /mnt/disk/nextcloud
+     nfs:
+         path: /mnt/little/nextcloud
+         server: orange3.atweek
      persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить                   
 ---
  apiVersion: v1
@@ -98,8 +103,9 @@ spec:
      volumeMode: Filesystem
      accessModes:
          - ReadWriteOnce
-     hostPath:
-         path: /mnt/disk/transmission
+     nfs:
+         path: /mnt/big/transmission
+         server: orange3.atweek
      persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить                   
 ---
 apiVersion: v1
@@ -115,8 +121,9 @@ spec:
     volumeMode: Filesystem
     accessModes:
         - ReadWriteOnce
-    hostPath:
-        path: /mnt/disk/homepage
+    nfs:
+        path: /mnt/big/homepage
+        server: orange3.atweek
     persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить 
 ---
 apiVersion: v1
