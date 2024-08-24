@@ -47,6 +47,5 @@ spec:
                 name: transmission-pvc
           volumes:
             - name: transmission-pvc
-              hostPath:
-                path: /mnt/big/transmission
-                type: DirectoryOrCreate
+              persistentVolumeClaim:
+                claimName: transmission-pvc

@@ -23,7 +23,7 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: kpzvjk39@duck.com
+    email: ramille655@gmail.com
     privateKeySecretRef:
       name: letsencrypt-production
     solvers:
