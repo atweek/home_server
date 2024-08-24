@@ -48,5 +48,5 @@ spec:
           volumes:
             - name: transmission-pvc
               hostPath:
-                path: /mnt/disk/transmission
+                path: /mnt/big/transmission
                 type: DirectoryOrCreate
