@@ -199,6 +199,18 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
+    name: nextcloud-pvc-conf
+spec:
+    accessModes:
+        - ReadWriteOnce
+    resources:
+        requests:
+            storage: 9Gi
+    storageClassName: nextcloud-disk
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
     name: transmission-pvc
 spec:
     accessModes:
