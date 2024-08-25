@@ -15,18 +15,11 @@ spec:
         app: nextcloud
     spec:
       securityContext:
-        fsGroup: 1000  # Ensure group permissions are correct for volumes
+        fsGroup: 1000  # Ensures the mounted volume has the correct group permissions
       volumes:
         - name: nextcloud-pvc
           persistentVolumeClaim:
             claimName: nextcloud-pvc
-      initContainers:
-        - name: set-permissions
-          image: busybox
-          command: ["sh", "-c", "chown -R 1000:1000 /usr/local/etc/php/conf.d"]
-          volumeMounts:
-            - mountPath: /usr/local/etc/php/conf.d
-              name: nextcloud-pvc
       containers:
         - image: nextcloud:stable
           name: nextcloud
