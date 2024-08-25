@@ -32,10 +32,10 @@
     - nextcloud.atweek.work
     - transmission.atweek.work
     - jellyfin.atweek.work
-    - grafana.atweek.work
+      #- grafana.atweek.work
     - nexus.atweek.work
     - docker.atweek.work
-    - lhawick.atweek.work
+      #- lhawick.atweek.work
      #- guardian.atweek.work
      #- argocd.atweek.work
      #- webtlo.atweek.work
