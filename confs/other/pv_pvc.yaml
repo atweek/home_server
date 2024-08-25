@@ -81,14 +81,32 @@ spec:
  spec:
      storageClassName: nextcloud-disk
      capacity:
-         storage: 10Gi
+         storage: 100Gi
      volumeMode: Filesystem
      accessModes:
          - ReadWriteOnce
      nfs:
          path: /mnt/little/nextcloud
          server: orange3.atweek
-     persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить                   
+     persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+    name: nextcloud-conf-pv
+    labels:
+        type: local
+spec:
+    storageClassName: nextcloud-disk
+    capacity:
+        storage: 10Gi
+    volumeMode: Filesystem
+    accessModes:
+        - ReadWriteOnce
+    nfs:
+        path: /mnt/little/nextcloud-conf
+        server: orange3.atweek
+    persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить
 ---
  apiVersion: v1
  kind: PersistentVolume

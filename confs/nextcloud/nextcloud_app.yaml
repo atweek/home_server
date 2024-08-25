@@ -20,6 +20,9 @@ spec:
         - name: nextcloud-pvc
           persistentVolumeClaim:
             claimName: nextcloud-pvc
+        - name: nextcloud-pvc-conf
+          persistentVolumeClaim:
+            claimName: nextcloud-pvc-conf
       containers:
         - image: nextcloud:stable
           name: nextcloud
@@ -61,6 +64,8 @@ spec:
           volumeMounts:
             - mountPath: /var/www/html
               name: nextcloud-pvc
+            - mountPath:  /usr/local/
+              name: nextcloud-pvc-conf
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
