@@ -86,7 +86,7 @@ spec:
      accessModes:
          - ReadWriteOnce
      nfs:
-         path: /mnt/big/nextcloud
+         path: /mnt/little/nextcloud
          server: orange3.atweek
      persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить                   
 ---
