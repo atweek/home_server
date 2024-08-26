@@ -62,7 +62,7 @@ spec:
             - name: NEXTCLOUD_TRUSTED_DOMAINS
               value: nextcloud.atweek.work
           volumeMounts:
-            - mountPath: /var/www/html
+            - mountPath: /
               name: nextcloud-pvc
 #            - mountPath:  /usr/local/
 #              name: nextcloud-pvc-conf
