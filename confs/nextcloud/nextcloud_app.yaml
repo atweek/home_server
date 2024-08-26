@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nextcloud
+  name: nextcloud-service
   labels:
     app: nextcloud
 spec:
@@ -62,7 +62,7 @@ spec:
             - name: NEXTCLOUD_TRUSTED_DOMAINS
               value: nextcloud.atweek.work
           volumeMounts:
-            - mountPath: /
+            - mountPath: /var/www/html
               name: nextcloud-pvc
 #            - mountPath:  /usr/local/
 #              name: nextcloud-pvc-conf
