@@ -5,7 +5,7 @@ metadata:
     app: jellyfin
   name: jellyfin
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: jellyfin
@@ -43,20 +43,20 @@ spec:
           value: Europe/Moscow
         - name: JELLYFIN_MARIADB_SERVER
           value: mariadb.default.svc.cluster.local
-        - name: JELLYFIN_MARIADB_PORT
-          value: "3306"
-        - name: JELLYFIN_MARIADB_DATABASE
-          value: mysql
-        - name: JELLYFIN_MARIADB_USER
-          valueFrom:
-            secretKeyRef:
-              key: MYSQL_USER
-              name: apps-secrets
-        - name: JELLYFIN_MARIADB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              key: MYSQL_PASSWORD
-              name: apps-secrets
+        # - name: JELLYFIN_MARIADB_PORT
+        #   value: "3306"
+        # - name: JELLYFIN_MARIADB_DATABASE
+        #   value: mysql
+        # - name: JELLYFIN_MARIADB_USER
+        #   valueFrom:
+        #     secretKeyRef:
+        #       key: MYSQL_USER
+        #       name: apps-secrets
+        # - name: JELLYFIN_MARIADB_PASSWORD
+        #   valueFrom:
+        #     secretKeyRef:
+        #       key: MYSQL_PASSWORD
+        #       name: apps-secrets
         securityContext:
           privileged: true
         image: ghcr.io/linuxserver/jellyfin
