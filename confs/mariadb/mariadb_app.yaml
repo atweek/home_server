@@ -22,6 +22,7 @@ spec:
       containers:
       - name: mariadb 
         image: mariadb:latest 
+        args: ["--skip-grant-tables"]
         ports:
           - containerPort: 3306
         env:
