@@ -15,7 +15,7 @@ spec:
     accessModes:
         - ReadWriteOnce
     nfs:
-        path: /mnt/big/jellyfin
+        path: /mnt/big/jellyfin_config
         server: orange3.atweek
     persistentVolumeReclaimPolicy: Retain #Retain в будущем заменеить  
 ---
