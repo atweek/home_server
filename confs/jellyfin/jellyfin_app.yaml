@@ -56,7 +56,7 @@ spec:
           valueFrom:
             secretKeyRef:
               key: MYSQL_PASSWORD
-              name: apps-secretsd
+              name: apps-secrets
         securityContext:
           privileged: true
         image: ghcr.io/linuxserver/jellyfin
