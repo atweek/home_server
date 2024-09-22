@@ -48,15 +48,15 @@ spec:
         - name: JELLYFIN_MARIADB_DATABASE
           value: jellyfin
         - name: JELLYFIN_MARIADB_USER
-            valueFrom:
-              secretKeyRef:
-                key: MYSQL_USER
-                name: apps-secrets
+          valueFrom:
+            secretKeyRef:
+              key: MYSQL_USER
+              name: apps-secrets
         - name: JELLYFIN_MARIADB_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                key: MYSQL_PASSWORD
-                name: apps-secretsd
+          valueFrom:
+            secretKeyRef:
+              key: MYSQL_PASSWORD
+              name: apps-secretsd
         securityContext:
           privileged: true
         image: ghcr.io/linuxserver/jellyfin
