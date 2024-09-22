@@ -5,7 +5,7 @@ metadata:
     app: jellyfin
   name: jellyfin
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: jellyfin
@@ -14,6 +14,16 @@ spec:
       labels:
         app: jellyfin
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - jellyfin
+              topologyKey: "kubernetes.io/hostname"
       volumes:
       - name: transmission-pvc
         persistentVolumeClaim:
@@ -28,9 +38,25 @@ spec:
         - name: PGID
           value: "\x36\x35\x35\x34\x31" # < ASCII code for '65541'
         - name: PUID
-          value: "\x31\x30\x34\x34" #< ACII code for '1044'
+          value: "\x31\x30\x34\x34" # < ACII code for '1044'
         - name: TZ
           value: Europe/Moscow
+        - name: JELLYFIN_MARIADB_SERVER
+          value: mariadb.default.svc.cluster.local
+        - name: JELLYFIN_MARIADB_PORT
+          value: "3306"
+        - name: JELLYFIN_MARIADB_DATABASE
+          value: jellyfin
+        - name: JELLYFIN_MARIADB_USER
+              valueFrom:
+                secretKeyRef:
+                  key: MYSQL_USER
+                  name: apps-secrets
+        - name: JELLYFIN_MARIADB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: MYSQL_PASSWORD
+                  name: apps-secretsd
         securityContext:
           privileged: true
         image: ghcr.io/linuxserver/jellyfin
